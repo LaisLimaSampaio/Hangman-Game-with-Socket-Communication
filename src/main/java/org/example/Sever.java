@@ -30,6 +30,12 @@ public class Sever {
             Jogo jogo = new Jogo(saida);
             tentativasErradas = jogo.atualizarQuadro();
             while (tentativasErradas < 6) {
+                if (tentativasErradas == -2) {
+                    entrada.close();
+                    saida.close();
+                    socket.close();
+                    serverSocket.close();
+                }
                 String letraChutada = entrada.readUTF();
                 System.out.println("SERVIDOR: Cliente chutou a letra: " + letraChutada);
                 tentativasErradas= jogo.chutarLetra(letraChutada);

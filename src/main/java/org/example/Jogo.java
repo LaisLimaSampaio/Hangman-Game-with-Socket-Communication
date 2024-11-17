@@ -60,6 +60,8 @@ public class Jogo {
                 out.writeUTF("Suas tentavivas acabaram\nVOCÊ PERDEU O JOGO!\n A resposta era: "+palavraSorteada);
             }else if(palavraSorteada.equals(palavraAtual)){
                 out.writeUTF("Você ganhou o jogo parabéns!");
+                tentativas = -2;
+                return tentativas;
             }
 
         }catch (IOException e){
